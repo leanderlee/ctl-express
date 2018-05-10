@@ -23,11 +23,7 @@ exports.create = function () {
   app.use(body.json({ limit: '25mb' }));
   app.use(log.morgan());
   app.set('view engine', 'html');
-  const env = views.setup(app);
-  app.render = (view, overrides) => {
-    const vars = Object.assign({}, views.locals(), overrides);
-    return env.render(view, vars);
-  };
+  app.views = views.setup(app);
   app.use((req, res, next) => {
     res.locals = views.locals();
     next();
