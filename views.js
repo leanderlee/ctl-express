@@ -1,6 +1,6 @@
 const ctl = require('ctl');
 const nunjucks = require('nunjucks');
-const config = require('ctl/config');
+const config = ctl.library('config');
 const settings = ctl.settings({ views: 'views' });
 
 exports.setup = (app) => {

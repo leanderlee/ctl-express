@@ -4,10 +4,10 @@ const express = require('express');
 const compress = require('compression');
 const body = require('body-parser');
 
-const config = require('ctl/config');
-const log = require('ctl/logging')('server');
-const views = require('./views');
+const config = ctl.library('config');
+const log = ctl.library('logging')('server');
 const settings = ctl.settings({ 'static': 'static' });
+const views = require('./views');
 
 exports.create = function () {
   const app = express();
