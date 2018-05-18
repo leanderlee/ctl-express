@@ -11,8 +11,8 @@ const settings = ctl.settings({
   'static': 'static',
   staticUrl: '/static',
 });
-const config = require('library/config');
-const log = require('library/logging')('server');
+const config = ctl.library('config');
+const log = ctl.library('logging')('server');
 
 function create() {
   const locals = {

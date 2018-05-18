@@ -1,7 +1,7 @@
 const ctl = require('ctl');
 const path = require('path');
 const fs = require('fs-extra');
-const log = require('library/logging')('api');
+const log = ctl.library('logging')('api');
 
 function wrap(controller) {
   const wrapped = {};
