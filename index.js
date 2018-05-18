@@ -22,7 +22,7 @@ function create() {
   const app = express();
   app.set('x-powered-by', false);
   if (settings.staticUrl.startsWith('/')) {
-    app.use(settings.staticUrl, express.static(`${settings.src}/${settings.static}`));
+    app.use(settings.staticUrl, express.static(`${settings.root}/${settings.static}`));
   }
   app.use(compress());
   app.use(body.json({ limit: '25mb' }));
