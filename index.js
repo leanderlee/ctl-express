@@ -5,16 +5,16 @@ const nunjucks = require('nunjucks');
 const compress = require('compression');
 const body = require('body-parser');
 
-const settings = ctl.settings({
-  host: 'http://localhost:8080',
-  views: 'views',
-  'static': 'static',
-  staticUrl: '/static',
-});
 const config = ctl.library('config');
 const log = ctl.library('logging')('server');
 
 function create() {
+  const settings = ctl.settings({
+    host: 'http://localhost:8080',
+    views: 'views',
+    'static': 'static',
+    staticUrl: '/static',
+  });
   const locals = {
     host: settings.host,
     staticUrl: settings.staticUrl,
