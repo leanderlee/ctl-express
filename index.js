@@ -5,7 +5,6 @@ const nunjucks = require('nunjucks');
 const compress = require('compression');
 const body = require('body-parser');
 
-const config = ctl.library('config');
 const log = ctl.library('logging')('server');
 
 function create() {
@@ -47,10 +46,11 @@ function create() {
 }
 
 async function run(app) {
+  const settings = ctl.settings({ port: 8080 })
   const server = http.createServer(app);
-  await server.listen(config.port);
+  await server.listen(settings.port);
   const host = server.address().address;
-  log.info('Server started listening at http://%s:%s', host, config.port);
+  log.info('Server started listening at http://%s:%s', host, settings.port);
 }
 
 const service = {
